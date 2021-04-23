@@ -131,7 +131,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 export const getStaticProps: GetStaticProps = async () => {
 	const { data } = await api({
 		method: "GET",
-		url: "episodes",
+		url: "/episodes",
 		headers: {
 			"X-Master-Key": process.env.API_KEY,
 		},
