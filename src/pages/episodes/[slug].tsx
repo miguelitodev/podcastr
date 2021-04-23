@@ -1,6 +1,8 @@
+import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 
 import { api } from "../../services/api";
 
@@ -9,6 +11,7 @@ import ptBR from "date-fns/locale/pt-BR";
 import { convertDurationToTimeString } from "../../utils/convertDurationToTimeString";
 
 import styles from "./episode.module.scss";
+import { PlayerContext } from "../../contexts/PlayerContexts";
 
 type Episode = {
 	id: string;
@@ -27,22 +30,28 @@ type EpisodeProps = {
 };
 
 export default function Episode({ episode }: EpisodeProps) {
+	const { play } = React.useContext(PlayerContext);
+
 	return (
 		<div className={styles.episodeContainer}>
+			<Head>
+				<title>{episode.title} | Podcastr</title>
+			</Head>
+
 			<div className={styles.episode}>
 				<div className={styles.thumbnailContainer}>
-					<button type="button">
-						<Link href="/">
+					<Link href="/">
+						<button type="button">
 							<img src="/arrow-left.svg" alt="Voltar" />
-						</Link>
-					</button>
+						</button>
+					</Link>
 					<Image
 						width={700}
 						height={160}
 						src={episode.thumbnail}
 						objectFit="cover"
 					/>
-					<button type="button">
+					<button type="button" onClick={() => play(episode)}>
 						<img src="/play.svg" alt="Tocar episódio" />
 					</button>
 				</div>
