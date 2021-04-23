@@ -5,7 +5,8 @@ import Head from "next/head";
 import { format, parseISO } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 
-// import { api } from "./../services/api";
+import { api } from "./../services/api";
+
 import axios from "axios";
 import { convertDurationToTimeString } from "../utils/convertDurationToTimeString";
 
@@ -130,20 +131,15 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	const { data } = await axios({
-		url: "https://api.jsonbin.io/v3/b/6082db8ca2213a0c1429b949/1/",
+	const { data } = await api({
+		url: "/episodes",
 		method: "GET",
-		headers: {
-			"X-Master-Key":
-				"$2b$10$lCmt4hqMGuaksDfupPrYXu80KJuUgrVR5yP6q2k/8TsP6C13uUA2.",
-		},
 		params: {
 			_limit: 12,
 			_sort: "published_at",
 			_order: "desc",
 		},
 	});
-
 	const episodes = data.map((episode) => {
 		return {
 			id: episode.id,

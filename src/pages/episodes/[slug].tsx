@@ -83,7 +83,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 	const { slug } = ctx.params;
 	const { data } = await api({
 		method: "GET",
-		url: `episodes/${slug}`,
+		url: `/episodes/${slug}`,
 	});
 
 	const episode = {
