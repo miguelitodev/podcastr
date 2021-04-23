@@ -132,6 +132,9 @@ export const getStaticProps: GetStaticProps = async () => {
 	const { data } = await api({
 		method: "GET",
 		url: "episodes",
+		headers: {
+			"X-Master-Key": process.env.API_KEY,
+		},
 		params: {
 			_limit: 12,
 			_sort: "published_at",
