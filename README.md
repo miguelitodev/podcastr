@@ -1,12 +1,9 @@
 <div align="center">
   <img src=".github/podcastr-logo.svg" alt="Podcastr logo">
+  <br>
+  <a href="https://podcastr-tan.vercel.app/">Demo</a>
+  <br>
 </div>
-
-## Podcastr
-
-[![Author](https://img.shields.io/badge/author-miguelrisquelme-8257E5?style=flat-square)](https://github.com/miguelrisquelme)
-[![Languages](https://img.shields.io/github/languages/count/miguelrisquelme/podcastr?color=%238257E5&style=flat-square)](#)
-[![Stars](https://img.shields.io/github/stars/miguelrisquelme/podcastr?color=8257E5&style=flat-square)](https://github.com/miguelrisquelme/podcastr/stargazers)
 
 <h4 align="center">
   Podcastr is a platform built for podcast broadcasting.
@@ -22,7 +19,6 @@
 </div>
 
 This project was developed using cutting edge front-end technologies.
-
 
 - [ReactJS](https://reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
